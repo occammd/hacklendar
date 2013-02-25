@@ -1,6 +1,4 @@
 
-
-
 <h3 style="text-align:center;">
 	<%= @day.strftime("%^B %Y")%>
 	<div class="btn-group pull-right">
@@ -27,7 +25,7 @@
 <% if day.monday? %>
 <tr>
 <% end %>
-<td><%= day.mday %>
+<td><%= link_to day.mday, diary_entries_path(day: day) %>
 <% if @activedays.include?(day) %>
 	<i class="icon-pencil"></i>
 <% end %>

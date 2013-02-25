@@ -21,9 +21,11 @@
     <td><%= diary_entry.title %></td>
     <td><%= diary_entry.entry %></td>
     <td><%= diary_entry.mood %></td>
-    <td><%= link_to 'Show', diary_entry, class: "btn btn-primary" %></td>
-    <td><%= link_to 'Edit', edit_diary_entry_path(diary_entry) , class: "btn btn-success"%></td>
-    <td><%= link_to 'Destroy', diary_entry, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger"%></td>
+ 
+    <td> <div class="btn-group"><%= link_to 'Show', diary_entry, class: "btn btn-primary" %>
+    <%= link_to 'Edit', edit_diary_entry_path(diary_entry) , class: "btn btn-success"%>
+    <%= link_to 'Destroy', diary_entry, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger"%>
+  </div></td>
   </tr>
 <% end %>
 </table>
