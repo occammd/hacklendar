@@ -1,0 +1,37 @@
+
+
+
+<h3 style="text-align:center;">
+	<%= @day.strftime("%^B %Y")%>
+	<div class="btn-group pull-right">
+	<%= link_to "Prev", diary_entries_path(day: @day-1.month), class: "btn" %>
+	<%= link_to "Today", diary_entries_path(day: Date.today), class: "btn" %>
+	<%= link_to "Next", diary_entries_path(day: @day+1.month) , class:"btn"%>
+</div>
+</h2>
+
+<table class="table table-bordered table-striped" >
+	<thead >
+	<tr class="success">
+		<th>Mon</th>
+		<th>Tues</th>
+		<th>Wed</th>
+		<th>Thu</th>
+		<th>Fri</th>
+		<th>Sat</th>
+		<th>Sun</th>
+	</tr>	
+	</thead>
+<tbody>
+<% (@day.beginning_of_month.beginning_of_week..@day.end_of_month.end_of_week).each do |day| %>
+<% if day.monday? %>
+<tr>
+<% end %>
+<td><%= day.mday %>
+<% if @activedays.include?(day) %>
+	<i class="icon-pencil"></i>
+<% end %>
+<% end %>
+</td>
+</tbody>
+</table>
